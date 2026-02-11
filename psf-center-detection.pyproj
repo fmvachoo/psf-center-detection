@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>79153252-b4f5-4a68-8d62-45353c3a8acd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>psf_center_detection.py</StartupFile>
+    <StartupFile>app.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="psf_center_detection.py" />
+    <Compile Include="src\app.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\static\" />
+    <Folder Include="src\static\css\" />
+    <Folder Include="src\static\js\" />
+    <Folder Include="src\tamplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\static\css\style.css" />
+    <Content Include="src\static\js\script.js" />
+    <Content Include="src\tamplates\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

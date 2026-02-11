@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSF Center Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PSF Center Detection</h1>
+        <p class="subtitle">Предсказание центра точки функции рассеяния пятна</p>
+        
+        <div class="content">
+            <div class="images-container">
+                <!-- Область загрузки изображения -->
+                <div class="image-section">
+                    <h3>Исходное изображение</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Перетащите изображение сюда</p>
+                            <p class="or">или</p>
+                            <button type="button" class="btn-select" onclick="document.getElementById('fileInput').click()">
+                                Выберите файл
+                            </button>
+                            <input type="file" id="fileInput" accept=".png" style="display: none;">
+                        </div>
+                        <img id="previewImage" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Результат -->
+                <div class="image-section">
+                    <h3>Результат</h3>
+                    <div class="result-area" id="resultArea">
+                        <p class="placeholder">Здесь появится результат</p>
+                        <img id="resultImage" style="display: none;">
+                    </div>
+                    <div class="coordinates" id="coordinates" style="display: none;">
+                        <p><strong>Координаты центра:</strong></p>
+                        <p>X: <span id="coordX">-</span></p>
+                        <p>Y: <span id="coordY">-</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Панель управления -->
+            <div class="controls">
+                <div class="control-group">
+                    <label for="modelSelect">Выберите модель:</label>
+                    <select id="modelSelect">
+                        {% for model in models %}
+                        <option value="{{ model }}">{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button id="searchBtn" class="btn-search" disabled>Search</button>
+            </div>
+
+            <!-- Индикатор загрузки -->
+            <div class="loader" id="loader" style="display: none;">
+                <div class="spinner"></div>
+                <p>Обработка изображения...</p>
+            </div>
+
+            <!-- Сообщения об ошибках -->
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
