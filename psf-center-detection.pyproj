@@ -31,6 +31,10 @@
     <Folder Include="src\tamplates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docker-compose.yml" />
+    <Content Include="Dockerfile" />
+    <Content Include="requirements-docker.txt" />
+    <Content Include="requirements.txt" />
     <Content Include="src\static\css\style.css" />
     <Content Include="src\static\js\script.js" />
     <Content Include="src\tamplates\index.html" />

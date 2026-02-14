@@ -113,6 +113,8 @@ model/*.keras
 *.h5
 *.keras
 
+!model/.gitkeep
+
 # MacOS
 *.DS_Store
 .AppleDouble
